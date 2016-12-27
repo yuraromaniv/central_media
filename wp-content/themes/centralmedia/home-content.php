@@ -62,13 +62,26 @@
 <div class="row content">
 	<div class="col l6 s12 m6 news-block ">
 		<div class="news-sign center">ОСТАННІ НОВИНИ</div>
+		
+		<?php 
+			 $args = array(
+                'post_type' => 'news',
+                'publish' => true,
+                'paged' => get_query_var('paged')
+            );
+            query_posts($args);
+            if ( have_posts() ) : while ( have_posts() ) : the_post();
+        ?>
 		<div class="article"> 
 			<div class="article-title">
-				<a href="#" class="hover-link"><i class="fa fa-bar-chart" aria-hidden="true"></i>
-					Активісти на авто з єврономерами перекрили центр Києва
+				<a href="<?php the_permalink(); ?>" class="hover-link"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+					<?php the_title(); ?>
 				</a>
 			</div>
 		</div>
+        <?php endwhile; ?>
+		<?php endif; ?>
+		
 		<div class="article"> 
 			<div class="article-title">
 				<a href="#" class="hover-link"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
@@ -86,47 +99,18 @@
 				<a href="#" class="hover-link"><em>фото</em>В Росії цензура не пропустила три книги для Сущенка</a>
 			</div>
 		</div>
-		<div class="article"> 
-			<div class="article-title">
-				<a href="#" class="hover-link"><em>фото</em>МЗС РФ образилося на жарти українського посла про отруєння "Бояришніком"</a>
-			</div>
-		</div>
-		<div class="article"> 
-			<div class="article-title">
-				<a href="#" class="hover-link"><em>фото</em>Грицак: Росія відпустить Сущенка, коли їй це буде вигідно</a>
-			</div>
-		</div>
-		<div class="article"> 
-			<div class="article-title">
-				<a href="#" class="hover-link"><em>фото</em>У РФ винесли вирок Варварі Карауловій, яка намагалася втекти до Сирії</a>
-			</div>
-		</div>
-		<div class="article"> 
-			<div class="article-title">
-				<a href="#" class="hover-link"><em>фото</em>Рада знизила "зелений" тариф для сонячних електростанцій</a>
-			</div>
-		</div>
-		<div class="article"> 
-			<div class="article-title">
-				<a href="#" class="hover-link"><em>фото</em>Дві третини українців не хочуть назад в СРСР</a>
-			</div>
-		</div>
-		<div class="article"> 
-			<div class="article-title">
-				<a href="#" class="hover-link"><em>фото</em>"Центренерго" купує вугілля з Росії через Панаму - ЗМІ</a>
-			</div>
-		</div>
+		
 	</div>
 	<!--Videos-->
 	<div class="col l3 s12 m6 center video-block">
 		<div class="news-sign-video center">ВІДЕО</div>
 		<div class="video-list row">
 			<div class="youtube col l6">
-				<img width="80%" src="<?php bloginfo('template_url') ?>/img/logo/youtube-icon.png" alt="альтернативный текст" />
+				<img width="80%" src="<?php bloginfo('template_url'); ?>/img/logo/youtube-icon.png" alt="альтернативный текст" />
 				<div class="center">Наш канал YouTube</div>
 			</div>
 			<div class="youtube col l6">
-				<img  width="80%" src="<?php bloginfo('template_url') ?>/img/logo/youtube-icon.png" alt="альтернативный текст" />
+				<img  width="80%" src="<?php bloginfo('template_url'); ?>/img/logo/youtube-icon.png" alt="альтернативный текст" />
 				<div class="center">Наш онлайн канал YouTube</div>
 			</div>
 		</div>
@@ -169,27 +153,54 @@
 		<div class="state-list">
 			<div class="state-sign center">СТАТТІ</div>
 			<div class="blogs">
-				<div class="row main-state">
-					<div class="col s12 m12 l12">
-						<img src="http://biz.liga.net/upload/iblock/02e/02e83ce1773cad95ffc980897775d6e4.jpg" width="100%" alt="">
-						<span class="state-first-name">Brexit БПП: енергетична команда президента кинулася врозтіч</span><br>
-						<span>Чому депутати надали 100% гарантію депозитам Приватбанку</span>
+				<?php 
+					$args = array(
+		                'post_type' => 'articles',
+		                'posts_per_page' => 3,
+		                'publish' => true,
+		                'orderby'     => 'date',
+		                'order'       => 'DESC',
+		                'paged' => get_query_var('paged')
+		            );
+		            $firstArticle = false;
+		            $myposts = get_posts( $args );
+					foreach( $myposts as $post ){ setup_postdata($post);
+					if ($firstArticle == false) {
+					?>
+						<div class="row main-state">
+							<div class="col s12 m12 l12">
+								<img src="http://biz.liga.net/upload/iblock/02e/02e83ce1773cad95ffc980897775d6e4.jpg" width="100%" alt="">
+								<span class="state-first-name"><?php the_title(); ?></span><br>
+								<span><?php the_excerpt(); ?></span>
+							</div>
+						</div>
+					<?php
+						} /* end if */
+						else{
+					?>
+					<div class="row other-state">
+						<div class="col s12 m12 l12">
+							<?php 
+								$size = 'thumbnail';
+								$attr = 'class=state-other-float';
+								the_post_thumbnail( array(125, 102), $attr ); 
+							?>
+							<div class="state-other-name"><?php the_title(); ?></div>
+							<div class="state-other-text"><?php the_excerpt(); ?></div>
+						</div>
 					</div>
-				</div>
-				<div class="row other-state">
-					<div class="col s12 m12 l12">
-						<img src="http://img.pravda.com/images/doc/3/4/34426a6-yatcenyk-690-1_185x114.jpg" width="40%" alt="" class="state-other-float">
-						<div class="state-other-name">Росія відпустить Сущенка, коли їй це буде вигідно</div>
-						<div class="state-other-text">Чому депутати надали 100% гарантію депозитам ПриватбанкуЧому депутати надали 100% гарантію депозитам Приватбанку Приватбанку Приватбанку Приватбанку</div>
-					</div>
-				</div>
-				<div class="row other-state">
-					<div class="col s12 m12 l12">
-						<img src="http://img.pravda.com/images/doc/6/1/61c4289-contrabanda-470_185x114.jpg" width="40%" alt="" class="state-other-float">
-						<div class="state-other-name">Пригоди "дипломатів-контрабандистів": як виправдати себе і відсудити 900 тисяч у держави</div>
-						<div class="state-other-text">Чому депутати надали 100% гарантію депозитам ПриватбанкуЧому депутати надали 100% гарантію депозитам Приватбанку Приватбанку Приватбанку Приватбанку</div>
-					</div>
-				</div>
+
+					<?php
+						} /* end else */
+					?> 
+
+					
+				<?php
+					$firstArticle = true;
+					} /* end foreach */
+					wp_reset_postdata();
+		        ?>
+				
 			</div>
 		</div>
 	</div>
@@ -225,6 +236,6 @@
 				</div>
 				<!--advertising-->
 				<div class="col l4 s12 m6 center reklama">
-					<img src="<?php bloginfo('template_url') ?>/img/logo/logo_kodeks.png" width="40%">
+					<img src="<?php bloginfo('template_url'); ?>/img/logo/logo_kodeks.png" width="40%">
 				</div>
 			</div>
