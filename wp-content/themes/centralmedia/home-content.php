@@ -1,4 +1,6 @@
 <!--home-content-->
+
+<div style="height: 58px;"></div>
 <div class="row slider-section">
 	<!--slider-->
 	<div class="col l8 s12 m12">
