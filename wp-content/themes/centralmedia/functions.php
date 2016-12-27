@@ -6,11 +6,6 @@
 	add_filter('excerpt_length', 'new_excerpt_length');
 	/* end */
 
-	/* Видалення конструкції [...] в кінці */
-	add_filter('excerpt_more', function($more) {
-		return '...';
-	});
-	/* end */
 
 	/* Створення посилання "Читати далі ..." в кінці */
 	add_filter('excerpt_more', 'new_excerpt_more');

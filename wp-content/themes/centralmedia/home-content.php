@@ -172,7 +172,7 @@
 						<div class="row main-state">
 							<div class="col s12 m12 l12">
 								<img src="http://biz.liga.net/upload/iblock/02e/02e83ce1773cad95ffc980897775d6e4.jpg" width="100%" alt="">
-								<span class="state-first-name"><?php the_title(); ?></span><br>
+								<span class="state-first-name"><?php the_title(); ?></span>
 								<span><?php the_excerpt(); ?></span>
 							</div>
 						</div>
@@ -182,11 +182,7 @@
 					?>
 					<div class="row other-state">
 						<div class="col s12 m12 l12">
-							<?php 
-								$size = 'thumbnail';
-								$attr = 'class=state-other-float';
-								the_post_thumbnail( array(125, 102), $attr ); 
-							?>
+							<img src="<?php the_post_thumbnail_url(); ?>" width="40%" alt="" class="state-other-float">
 							<div class="state-other-name"><?php the_title(); ?></div>
 							<div class="state-other-text"><?php the_excerpt(); ?></div>
 						</div>
