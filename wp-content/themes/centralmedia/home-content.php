@@ -1,5 +1,7 @@
 <!--home-content-->
-<div class="row gavno-kod">
+
+<div style="height: 58px;"></div>
+<div class="row slider-section">
 	<!--slider-->
 	<div class="col l8 s12 m12">
 		<div class="carousel carousel-slider center" data-indicators="true">
@@ -207,7 +209,7 @@
 </div>
 <br>
 <!--polling-->
-<div class="row">
+<div class="row polling">
 				<div class="col l4 s12 m6 asking-block">
 					<h5 class="asking">Опитування</h5>
 				</div>

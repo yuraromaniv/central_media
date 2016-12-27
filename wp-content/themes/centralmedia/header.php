@@ -36,14 +36,22 @@
 		}
 	</style>
 </head>
+
 <body>
-	<div id="menu" class="row">
-		<div class="col l1">
+
+<?php
+if (is_admin_bar_showing()) {
+    echo '<div style="height: 30px;"></div>';
+}
+?>
+
+	<div id="menu" class="row ">
+		<div class="col l1 ">
 			<a href="<?php echo home_url(); ?>">
 				<img src="<?php bloginfo('template_url') ?>/img/logo/logo-central-media1.jpeg" class="header-logo">
 			</a>
 		</div>
-		<div class="col l5">
+		<div class="col l5 ">
 		<div class="nav-wrapper">
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
 			    <li><a class="menu-list" href="collapsible.html">ВІДЕО</a></li>

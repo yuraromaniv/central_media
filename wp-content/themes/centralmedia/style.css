@@ -132,7 +132,7 @@ hr{
 .blog-top {
     float:left; /* Выравнивание по левому краю */
     margin: 0px 10px 0px 0px; /* Отступы вокруг картинки */
-   }
+}
 
 .blogger-name{
     font-size: 12px;
@@ -154,28 +154,26 @@ hr{
 }
 
 #menu{
-    overflow: hidden;
+    overflow: hidden; 
     position: fixed;
     z-index: 9999;
     width: 100%;
+
     background-color: white;
-    top: 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  
+}
+.down{
+    margin-top: 58px;
 }
 #menu li{
-       display: inline;
-       list-style:none;
-       margin: 5px 10px;
-       float: right;
-        padding-left: 16px;
-        padding-right: 5px;
-   }
-.gavno-kod{
-    margin-top: 58px;
-
-   
-
+    display: inline;
+    list-style:none;
+    margin: 5px 10px;
+    float: right;
+    padding-left: 16px;
+    padding-right: 5px;
 }
+
 nav{
     background-color: white;
     width: 300px;
@@ -229,13 +227,13 @@ nav .input-field label i  {
 .article{
     border-radius: 2px;
     margin: 20px;
-        border-bottom: #e3e3e3 1px solid;
-        padding: 5px;
+    border-bottom: #e3e3e3 1px solid;
+    padding: 5px;
     vertical-align: baseline;
 
 }
 em{
-        display: inline-block;
+    display: inline-block;
     font-family: 'proxima_nova_rgregular',Arial,sans-serif;
     font-style: normal;
     font-size: 11px;
@@ -253,7 +251,7 @@ em{
 }
 
 .hover-link:hover{
-transition-duration: .5s;
+    transition-duration: .5s;
     text-decoration: none;
     color: #f61c0d;
 }
@@ -268,12 +266,12 @@ transition-duration: .5s;
 }
 
 .news-sign{
-   font-size: 20px; 
-   padding-bottom: 10px;
-   font-weight: bold;
+    font-size: 20px; 
+    padding-bottom: 10px;
+    font-weight: bold;
 }
 .all-news{
-   
+
     padding-left: 25px;
     display: inline-block;
 }
@@ -290,7 +288,7 @@ transition-duration: .5s;
 }
 .blogs{
     margin-top: 25px;
-   height: 300px;
+    height: 300px;
 
 }
 .blogger-speach{
@@ -303,34 +301,34 @@ transition-duration: .5s;
 
 
 .news-block{
- text-align: justify;
-     border-right: #e3e3e3 1px solid;
+    text-align: justify;
+    border-right: #e3e3e3 1px solid;
 
- }
- .state-block{
-     text-align: left;
+}
+.state-block{
+    text-align: left;
 
- }
- .video-block{
-         border-right: #e3e3e3 1px solid;
+}
+.video-block{
+    border-right: #e3e3e3 1px solid;
 
 
- }
+}
 .youtube{
     padding: 10px;
 }
 .top-video{
- margin-top: 10px; 
- padding-bottom: 10px;  
- font-size: 20px;
+    margin-top: 10px; 
+    padding-bottom: 10px;  
+    font-size: 20px;
 }
 .video-text{
- text-align: left;
+    text-align: left;
     display:inline-table;
-   
+
 }
 .youtube-top-video{
-    
+
     display: inline-table;
 }
 .video-padding{
@@ -340,43 +338,43 @@ transition-duration: .5s;
 .img-mask{
     position: relative;
     z-index: 55;
-  
-height: 10%;
-width: 10%;
-background-image: url("img/logo/youtube-icon.png");
-background-size: contain;
-background-repeat: no-repeat;
+
+    height: 10%;
+    width: 10%;
+    background-image: url("img/logo/youtube-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 
 
 .news-sign-video{
-   font-size: 20px; 
-   padding-bottom: 20px;
-   font-weight: bold;
+    font-size: 20px; 
+    padding-bottom: 20px;
+    font-weight: bold;
 }
 
 
 
 
 .state-list{
-   padding-left: 10px;
-padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .state-sign{
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: -10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: -10px;
 }
 
 .state-first-name{
     font-weight: bold;
-   
+
 }
 
 .main-state{
-        padding-bottom: 10px;
+    padding-bottom: 10px;
     margin-bottom: 10px;
     border-bottom: #e3e3e3 1px solid;
 }
@@ -408,17 +406,17 @@ padding-right: 10px;
 }
 
 .partners-news{
-       font-size: 20px;
+    font-size: 20px;
     padding-bottom: 10px;
     font-weight: bold;
     text-align: center;
 }
 
 .news-partners-block{
- text-align: justify;
-     border-right: #e3e3e3 1px solid;
+    text-align: justify;
+    border-right: #e3e3e3 1px solid;
 
- }
+}
 
 .reklama{
     background-color: transparent;
@@ -431,15 +429,15 @@ footer.page-footer {
 }
 
 .asking{
-     font-size: 20px;
+    font-size: 20px;
     padding-bottom: 10px;
     font-weight: bold;
     text-align: center;
 }
 
 .asking-block{
-     text-align: justify;
-     border-right: #e3e3e3 1px solid;
+    text-align: justify;
+    border-right: #e3e3e3 1px solid;
 }
 
 .footer-logo-float{
@@ -486,4 +484,8 @@ footer.page-footer {
 
 footer.page-footer .footer-copyright {
     background-color: rgba(33, 33, 33, 0.99);
+}
+
+.polling{
+    border-top: 2px solid #d82d19;
 }
