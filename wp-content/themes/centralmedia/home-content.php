@@ -37,8 +37,8 @@
 		                'post_type' => 'blogs',
 		                'posts_per_page' => 3,
 		                'publish' => true,
-		                'orderby'     => 'date',
-		                'order'       => 'DESC'
+		                'orderby' => 'date',
+		                'order' => 'DESC'
 		            );
             $myposts = get_posts( $args );
 
@@ -85,15 +85,21 @@
 <div class="row content">
 	<div class="col l6 s12 m6 news-block ">
 		<div class="news-sign center">ОСТАННІ НОВИНИ</div>
+		
 		<?php 
 			 $args = array(
-                'post_type' => 'news',
-                'publish' => true,
-                'paged' => get_query_var('paged')
-            );
-            query_posts($args);
-            if ( have_posts() ) : while ( have_posts() ) : the_post();
+		                'post_type' => 'news',
+		                'posts_per_page' => 10,
+		                'publish' => true,
+		                'orderby' => 'date',
+		                'order' => 'DESC'
+		            );
+            $myposts = get_posts( $args );
+
+            foreach( $myposts as $post ){
+            	setup_postdata($post);
         ?>
+
 		<div class="article"> 
 			<div class="article-title">
 				<a href="<?php the_permalink(); ?>" class="hover-link"><i class="fa fa-bar-chart" aria-hidden="true"></i>
@@ -101,8 +107,10 @@
 				</a>
 			</div>
 		</div>
-        <?php endwhile; ?>
-		<?php endif; ?>
+        <?php
+    		} /* end foreach */
+			wp_reset_postdata();
+		?>
 		
 		<div class="article"> 
 			<div class="article-title">
@@ -144,8 +152,8 @@
 		                'post_type' => 'video',
 		                'posts_per_page' => 5,
 		                'publish' => true,
-		                'orderby'     => 'date',
-		                'order'       => 'DESC'
+		                'orderby' => 'date',
+		                'order' => 'DESC'
 		            );
             $myposts = get_posts( $args );
             foreach( $myposts as $post ){
@@ -177,8 +185,8 @@
 		                'post_type' => 'articles',
 		                'posts_per_page' => 3,
 		                'publish' => true,
-		                'orderby'     => 'date',
-		                'order'       => 'DESC',
+		                'orderby' => 'date',
+		                'order' => 'DESC',
 		                'paged' => get_query_var('paged')
 		            );
 		            $firstArticle = false;
