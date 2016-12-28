@@ -41,6 +41,22 @@
 		                'order'       => 'DESC'
 		            );
             $myposts = get_posts( $args );
+
+            function short_desc_blog($charlength) {		// function for display short content for blogs
+				$excerpt = get_the_excerpt();
+				?>
+				<a href="<?php the_permalink(); ?>" class="blog-short-desc" >
+				<?php
+					if ( mb_strlen( $excerpt ) > $charlength ) {
+						$subex = mb_substr( $excerpt, 0, $charlength);
+						echo $subex . '...';
+					} else {
+						echo $subex;
+					}
+					?>
+				</a>
+			<?php
+			} // end function short_desc_blog()
             foreach( $myposts as $post ){
             	setup_postdata($post);
         ?>
@@ -52,10 +68,7 @@
 				<div class="blogger-name"><?php the_author(); ?></div>
 				<div class="blogger-speach">
 					<?php
-						$my_excerpt = get_the_excerpt();
-						if ( $my_excerpt != '' ){
-							echo $my_excerpt;
-						}
+						short_desc_blog(100);		// display short content
 					?>
 				</div>
 			</div>
@@ -72,7 +85,6 @@
 <div class="row content">
 	<div class="col l6 s12 m6 news-block ">
 		<div class="news-sign center">ОСТАННІ НОВИНИ</div>
-		
 		<?php 
 			 $args = array(
                 'post_type' => 'news',
@@ -171,6 +183,19 @@
 		            );
 		            $firstArticle = false;
 		            $myposts = get_posts( $args );
+
+		            function short_desc_article($charlength) {		// function for display short content for states
+						$excerpt = get_the_excerpt();
+						?>
+						<?php
+							if ( mb_strlen( $excerpt ) > $charlength ) {
+								$subex = mb_substr( $excerpt, 0, $charlength);
+								echo $subex . '...';
+							} else {
+								echo $subex;
+							}
+					}
+
 					foreach( $myposts as $post ){
 						setup_postdata($post);
 						if ($firstArticle == false) {
@@ -181,12 +206,11 @@
 								<a href="<?php the_permalink(); ?>" class="hover-link">
 									<span class="state-first-name"><?php the_title(); ?></span>
 								</a>
+								<div>
 									<?php
-										$my_excerpt = get_the_excerpt();
-										if ( $my_excerpt != '' ){
-											echo '<div>' . $my_excerpt . '</div>';
-										}
+										short_desc_article(120);		// display short content
 									?>
+								</div>
 							</div>
 						</div>
 					<?php
@@ -201,10 +225,7 @@
 							</a>
 							<div class="state-other-text">
 								<?php
-									$my_excerpt = get_the_excerpt();
-									if ( $my_excerpt != '' ){
-										echo $my_excerpt;
-									}
+									short_desc_article(120);
 								?>
 							</div>
 						</div>
