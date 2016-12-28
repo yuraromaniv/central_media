@@ -31,31 +31,39 @@
 	<div class="col l4 s12 m12">
 		<div class="blogs">
 			<span class="blog-sign">БЛОГИ </span>
-			<div class="blog-block row">
-				<div class="blogger-photo col l3 s1 center" >
-					<img src="<?php bloginfo('template_url') ?>/img/users/user.png" alt="user">
-				</div> 
-				<div class="blogger-article col l9 s11">
-					<div class="blogger-name">Yura Romaniv</div>
-					<div class="blogger-speach">У нас новенький! Сервісний центр МВС почав роботу в ВС почав роботу в Бахмуті Донецької області</div>
+
+			<?php 
+			 $args = array(
+		                'post_type' => 'blogs',
+		                'posts_per_page' => 3,
+		                'publish' => true,
+		                'orderby'     => 'date',
+		                'order'       => 'DESC'
+		            );
+            $myposts = get_posts( $args );
+            foreach( $myposts as $post ){
+            	setup_postdata($post);
+        ?>
+		<div class="blog-block row">
+			<div class="blogger-photo col l3 s1 center" >
+				<img src="<?php bloginfo('template_url') ?>/img/users/user.png" alt="user">
+			</div> 
+			<div class="blogger-article col l9 s11">
+				<div class="blogger-name"><?php the_author(); ?></div>
+				<div class="blogger-speach">
+					<?php
+						$my_excerpt = get_the_excerpt();
+						if ( $my_excerpt != '' ){
+							echo $my_excerpt;
+						}
+					?>
 				</div>
 			</div>
-			<div class="blog-block row">
-				<div class="blogger-photo col l3 center" >
-					<img src="<?php bloginfo('template_url') ?>/img/users/user.png" alt="user">
-				</div> 
-				<div class="blogger-article col l9">
-					<div class="blogger-name">Yura Romaniv</div>
-					<div class="blogger-speach">Половина пятого. У Порошенко – экватор срока на посту.</div>
-				</div>
-			</div>
-			<div class="blog-block row">
-				<div class="blogger-photo col l3 center" ><img src="<?php bloginfo('template_url') ?>/img/users/user.png" alt="user"></div>
-				<div class="blogger-article col l9">
-					<div class="blogger-name">Yura Romaniv</div>
-					<div class="blogger-speach">Джерело нового життя або як запхнути ЛНР/ДНР в українське правове поле.</div>
-				</div>
-			</div>
+		</div>
+        <?php
+    		} /* end foreach */
+			wp_reset_postdata();
+		?>
 		</div>
 	</div>
 </div>
@@ -103,6 +111,7 @@
 		</div>
 		
 	</div>
+
 	<!--Videos-->
 	<div class="col l3 s12 m6 center video-block">
 		<div class="news-sign-video center">ВІДЕО</div>
@@ -116,38 +125,34 @@
 				<div class="center">Наш онлайн канал YouTube</div>
 			</div>
 		</div>
+
 		<div class="top-video">Топ-5 Відео</div>
+		<?php 
+			 $args = array(
+		                'post_type' => 'video',
+		                'posts_per_page' => 5,
+		                'publish' => true,
+		                'orderby'     => 'date',
+		                'order'       => 'DESC'
+		            );
+            $myposts = get_posts( $args );
+            foreach( $myposts as $post ){
+            	setup_postdata($post);
+        ?>
 		<div class="row video-padding">
 			<div class="youtube-top-video col l4">
-				<img width="80%" src="http://img.pravda.com/images/doc/7/3/73b1291-kononenko-nasalik-690-_185x114.jpg" alt="альтернативный текст" />
+				<img width="80%" src="<?php video_thumbnail(); ?>" alt="альтернативный текст" />
 			</div>
-			<div class="video-text col l8">Brexit БПП: енергетична команда президента кинулася врозтіч</div>
-		</div>
-		<div class="row video-padding">
-			<div class="youtube-top-video col l4">
-				<div class="img-mask"> </div>
-				<img  width="80%" src="http://img.pravda.com/images/doc/6/1/61c4289-contrabanda-470_185x114.jpg" alt="альтернативный текст" />
+			<div class="video-text col l8">
+				<a href="<?php the_permalink(); ?>" class="hover-link">
+					<?php the_title(); ?>
+				</a>
 			</div>
-			<div class="video-text col l8">Чому депутати надали 100% гарантію депозитам Приватбанку</div>
 		</div>
-		<div class="row video-padding">
-			<div class="youtube-top-video col l4">
-				<img width="80%" src="http://img.pravda.com/images/doc/7/e/7e08eea-485-zubko_185x114.jpg" alt="альтернативный текст" />
-			</div>
-			<div class="video-text col l8">Нічний ярмарок. Що депутати виторгували в бюджеті на наступний рік</div>
-		</div>
-		<div class="row video-padding">
-			<div class="youtube-top-video col l4">
-				<img width="80%" src="http://img.pravda.com/images/doc/5/e/5e4556f-690-11-kolomojskiy-dubilet_185x114.jpg" alt="альтернативный текст" />
-			</div>
-			<div class="video-text col l8">Аудит зовнішньої політики України. Що думають посли?</div>
-		</div>
-		<div class="row video-padding">
-			<div class="youtube-top-video col l4">
-				<img width="80%" src="http://img.pravda.com/images/doc/1/b/1b5a270-grojsman-690-11_185x114.jpg" alt="альтернативный текст" />
-			</div>
-			<div class="video-text col l8">Як зробити хорошу школу? Висновки дослідження PISA</div>
-		</div>
+        <?php
+    		} /* end foreach */
+			wp_reset_postdata();
+		?>
 	</div>
 
 	<!--state-->
@@ -166,14 +171,22 @@
 		            );
 		            $firstArticle = false;
 		            $myposts = get_posts( $args );
-					foreach( $myposts as $post ){ setup_postdata($post);
-					if ($firstArticle == false) {
+					foreach( $myposts as $post ){
+						setup_postdata($post);
+						if ($firstArticle == false) {
 					?>
 						<div class="row main-state">
 							<div class="col s12 m12 l12">
-								<img src="http://biz.liga.net/upload/iblock/02e/02e83ce1773cad95ffc980897775d6e4.jpg" width="100%" alt="">
-								<span class="state-first-name"><?php the_title(); ?></span>
-								<span><?php the_excerpt(); ?></span>
+								<img src="<?php the_post_thumbnail_url(); ?>" width="100%" alt="">
+								<a href="<?php the_permalink(); ?>" class="hover-link">
+									<span class="state-first-name"><?php the_title(); ?></span>
+								</a>
+									<?php
+										$my_excerpt = get_the_excerpt();
+										if ( $my_excerpt != '' ){
+											echo '<div>' . $my_excerpt . '</div>';
+										}
+									?>
 							</div>
 						</div>
 					<?php
@@ -183,8 +196,17 @@
 					<div class="row other-state">
 						<div class="col s12 m12 l12">
 							<img src="<?php the_post_thumbnail_url(); ?>" width="40%" alt="" class="state-other-float">
-							<div class="state-other-name"><?php the_title(); ?></div>
-							<div class="state-other-text"><?php the_excerpt(); ?></div>
+							<a href="<?php the_permalink(); ?>" class="hover-link">
+								<div class="state-other-name"><?php the_title(); ?></div>
+							</a>
+							<div class="state-other-text">
+								<?php
+									$my_excerpt = get_the_excerpt();
+									if ( $my_excerpt != '' ){
+										echo $my_excerpt;
+									}
+								?>
+							</div>
 						</div>
 					</div>
 
@@ -204,6 +226,7 @@
 	</div>
 </div>
 <br>
+
 <!--polling-->
 <div class="row polling">
 				<div class="col l4 s12 m6 asking-block">
