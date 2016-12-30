@@ -14,26 +14,23 @@ class CTClass extends CTClassBase
 	function setupPoll( $poll ) {
 
 		//-- Poll Title
-		$poll->attr( "title", "Which browser do you use?" );
+		$poll->attr( "title", "Чи задоволені Ви правлінням Порошенка?" );
 
 		//-- Poll Options
-		$poll->addItem( "Chrome" );
-		$poll->addItem( "Firefox" );
-		$poll->addItem( "IE" );
-		$poll->addItem( "Opera" );
-		$poll->addItem( "Safari" );
+		$poll->addItem( "Так" );
+		$poll->addItem( "Ні" );
 
 		//-- Text used in polls
-		$poll->attr( "msg-vote", "Vote" );
-		$poll->attr( "msg-select-one", "Please select one option" );
-		$poll->attr( "msg-already-voted", "You have already voted!" );
-		$poll->attr( "msg-view-result", "View Results" );
-		$poll->attr( "msg-thank-you", "Thank you for voting!" );
-		$poll->attr( "msg-return", "Back" );
-		$poll->attr( "msg-total", "Total" );
+		$poll->attr( "msg-vote", "Проголосувати" );
+		$poll->attr( "msg-select-one", "Виберіть один з варіантів" );
+		$poll->attr( "msg-already-voted", "Ви вже брали участь в опитуванні!" );
+		$poll->attr( "msg-view-result", "Результат" );
+		$poll->attr( "msg-thank-you", "Дякуємо за голосування!" );
+		$poll->attr( "msg-return", "Повернутись" );
+		$poll->attr( "msg-total", "Загалом проголосували:" );
 		$poll->attr( "msg-reset-block", "Reset IP & Cookie Block" );
-		$poll->attr( "msg-not-started", "Voting has not begun yet." );
-		$poll->attr( "msg-ended", "Voting has ended, thank you!" );
+		$poll->attr( "msg-not-started", "Голосування ще не почалося." );
+		$poll->attr( "msg-ended", "Голосування закінчилось. Дякуємо!" );
 
 		//-- Display "Reset IP & Cookie Block" button
 		//--	Show: true

@@ -62,7 +62,7 @@
         ?>
 		<div class="blog-block row">
 			<div class="blogger-photo col l3 s1 center" >
-				<img src="<?php bloginfo('template_url') ?>/img/users/user.png" alt="user">
+				<img src="<?php bloginfo('template_url') ?>/img/users/user2.png" alt="user">
 			</div> 
 			<div class="blogger-article col l9 s11">
 				<div class="blogger-name"><?php the_author(); ?></div>
@@ -138,11 +138,11 @@
 		<div class="video-list row">
 			<div class="youtube col l6">
 				<img width="80%" src="<?php bloginfo('template_url'); ?>/img/logo/youtube-icon.png" alt="альтернативный текст" />
-				<div class="center">Наш канал YouTube</div>
+				<div class="center">Канал YouTube</div>
 			</div>
 			<div class="youtube col l6">
-				<img  width="80%" src="<?php bloginfo('template_url'); ?>/img/logo/youtube-icon.png" alt="альтернативный текст" />
-				<div class="center">Наш онлайн канал YouTube</div>
+				<img  width="80%" src="<?php bloginfo('template_url'); ?>/img/logo/youtube-icon-stream.png" alt="альтернативный текст" />
+				<div class="center">Онлайн трансляція</div>
 			</div>
 		</div>
 

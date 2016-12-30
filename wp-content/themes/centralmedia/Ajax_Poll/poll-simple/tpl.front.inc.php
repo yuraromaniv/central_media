@@ -38,9 +38,9 @@
 <?php if ( $poll->started() ): ?>
 <!-- [BEGIN] Vote & View Buttons -->
 <div class='ap-ref-tipbox' style='text-align:center;margin-bottom:20px;'>
-	<button class="ap-vote poll-button">
+	<button class="ap-vote poll-button waves-effect waves-light btn">
 	<?php echo $poll->attr( "msg-vote" ); ?></button>
-	<button class="ap-result poll-button">
+	<button class="ap-result poll-button waves-effect waves-light btn">
 	<?php echo $poll->attr( "msg-view-result" ); ?></button>
 </div>
 <!-- [END] Vote & View Buttons -->

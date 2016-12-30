@@ -50,7 +50,7 @@
 <?php else: ?>
 <!-- [BEGIN] Back button -->
 <div class='ap-ref-tipbox' style='text-align:center;margin-bottom:20px;'>
-	<button class="ap-front poll-button">
+	<button class="ap-front poll-button waves-effect waves-light btn">
 		<?php echo $poll->attr( "msg-return" ); ?>
 	</button>
 </div>

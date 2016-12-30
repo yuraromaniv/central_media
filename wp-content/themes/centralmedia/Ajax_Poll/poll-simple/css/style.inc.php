@@ -81,16 +81,15 @@ $style=<<<_EOM_
 .%tclass% .poll-title {
 	margin-bottom:20px;
 	padding:0;
-	text-align:center;
+	text-align: left;
 
 	color:black;
 	font-weight:bold;
-	font-size:18px;
-	line-height:18px;
+	font-size:16px;
+	line-height: 0px;
 }
 
 .%tclass% .poll-table {
-	margin:0 auto;
 	border-collapse:collapse;
 }
 
@@ -115,7 +114,7 @@ $style=<<<_EOM_
 	display:none;
 	width:0;
 	height:12px;
-	background-color:rgba(0,128,0,0.5);
+	background-color:rgba(216, 45, 25, 0.8);
 
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -158,6 +157,7 @@ $style=<<<_EOM_
 	border:1px solid #aaa;
 	border-radius:4px;
 	cursor:pointer;
+	display: none;
 }
 
 /*-- tipbox --*/
@@ -186,19 +186,19 @@ $style=<<<_EOM_
 	color:#fff;
 	background-color:#080;
 	border:0 solid #cfcfcf;
-	border-width:5px 0;
+	border-width:0px 0;
 
 	-moz-box-shadow: 1px 1px 3px #000;
 	-webkit-box-shadow: 1px 1px 3px #000;
 }
 .%tclass% .poll-tipbox .poll-tipbox-selectone {
-	background-color:rgba(0,0,0,0.6);
+	background-color:#03A9F4;
 }
 .%tclass% .poll-tipbox .poll-tipbox-havevoted {
-	background-color:rgba(255,0,0,0.8);
+	background-color:#03A9F4;
 }
 .%tclass% .poll-tipbox .poll-tipbox-thankyou {
-	background-color:rgba(0,128,0,0.8);
+	background-color:#03A9F4;
 }
 
 /*-- checkbox --*/
@@ -230,7 +230,7 @@ $style=<<<_EOM_
 }
 .%tclass% .poll-input-cont-on,
 .%tclass% .poll-input-inner-on {
-	background-color:#888;
+	//background-color:#888;
 }
 .%tclass% .poll-input-mark {
 	width:100%;
@@ -243,6 +243,18 @@ $style=<<<_EOM_
 .%tclass% .poll-input-img {
 	display:none;
 }
+
+.%tclass% .btn,
+.%tclass% .btn-large {
+    text-decoration: none;
+    color: #fff;
+    background-color: #d82d19;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+}
+
 </style>
 _EOM_;
 $this->addStyle($style);
