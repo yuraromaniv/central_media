@@ -38,7 +38,6 @@
 </head>
 
 <body>
-
 <?php
 if (is_admin_bar_showing()) {
     echo '<div style="height: 30px;"></div>';

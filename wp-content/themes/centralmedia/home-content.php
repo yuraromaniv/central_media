@@ -207,49 +207,44 @@
 					foreach( $myposts as $post ){
 						setup_postdata($post);
 						if ($firstArticle == false) {
-					?>
-						<div class="row main-state">
-							<div class="col s12 m12 l12">
-								<img src="<?php the_post_thumbnail_url(); ?>" width="100%" alt="">
-								<a href="<?php the_permalink(); ?>" class="hover-link">
-									<span class="state-first-name"><?php the_title(); ?></span>
-								</a>
-								<div>
-									<?php
-										short_desc_article(120);		// display short content
-									?>
-								</div>
-							</div>
-						</div>
-					<?php
-						} /* end if */
-						else{
-					?>
-					<div class="row other-state">
-						<div class="col s12 m12 l12">
-							<img src="<?php the_post_thumbnail_url(); ?>" width="40%" alt="" class="state-other-float">
-							<a href="<?php the_permalink(); ?>" class="hover-link">
-								<div class="state-other-name"><?php the_title(); ?></div>
-							</a>
-							<div class="state-other-text">
-								<?php
-									short_desc_article(120);
-								?>
-							</div>
+				?>
+				<div class="row main-state">
+					<div class="col s12 m12 l12">
+						<img src="<?php the_post_thumbnail_url(); ?>" width="100%" alt="">
+						<a href="<?php the_permalink(); ?>" class="hover-link">
+							<span class="state-first-name"><?php the_title(); ?></span>
+						</a>
+						<div>
+							<?php
+								short_desc_article(120);		// display short content
+							?>
 						</div>
 					</div>
-
-					<?php
-						} /* end else */
-					?> 
-
-					
+				</div>
 				<?php
+					} /* end if */
+					else{
+				?>
+				<div class="row other-state">
+					<div class="col s12 m12 l12">
+						<img src="<?php the_post_thumbnail_url(); ?>" width="40%" alt="" class="state-other-float">
+						<a href="<?php the_permalink(); ?>" class="hover-link">
+							<div class="state-other-name"><?php the_title(); ?></div>
+						</a>
+						<div class="state-other-text">
+							<?php
+								short_desc_article(120);
+							?>
+						</div>
+					</div>
+				</div>
+
+				<?php
+						} /* end else */
 					$firstArticle = true;
 					} /* end foreach */
 					wp_reset_postdata();
-		        ?>
-				
+		        ?>		
 			</div>
 		</div>
 	</div>
@@ -258,34 +253,35 @@
 
 <!--polling-->
 <div class="row polling">
-				<div class="col l4 s12 m6 asking-block">
-					<h5 class="asking">Опитування</h5>
-				</div>
-				<!--partners news-->
-				<div class="col l4 s12 m6 news-partners-block">
-					<h5 class="partners-news center">Новини партнерів</h5>
-					<div class="article"> 
-				<div class="article-title">
-					<a href="#" class="hover-link"><i class="fa fa-bar-chart" aria-hidden="true"></i>
-						Активісти на авто з єврономерами перекрили центр Києва</a>
-					</div>
-				</div>
-				<div class="article"> 
-					<div class="article-title">
-						<a href="#" class="hover-link"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
-							Путін заявив, що Росія сильніша за будь-якого агресора</a>
-						</div>
-
-					</div>
-					<div class="article"> 
-						<div class="article-title">
-							<a href="#" class="hover-link red-text "><em>фото</em>ДЕПУТАТ У ДНІПРІ ПОПАВСЯ НА ХАБАРІ</a>
-						</div>
-
-					</div>
-				</div>
-				<!--advertising-->
-				<div class="col l4 s12 m6 center reklama">
-					<img src="<?php bloginfo('template_url'); ?>/img/logo/logo_kodeks.png" width="40%">
-				</div>
+	<div class="col l4 s12 m6 asking-block">
+		<h5 class="asking">Опитування</h5>
+		<div class='ajax-poll' tclass='poll-simple' style='width:450px;'></div>
+	</div>
+	<!--partners news-->
+	<div class="col l4 s12 m6 news-partners-block">
+		<h5 class="partners-news center">Новини партнерів</h5>
+		<div class="article"> 
+	<div class="article-title">
+		<a href="#" class="hover-link"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+			Активісти на авто з єврономерами перекрили центр Києва</a>
+		</div>
+	</div>
+	<div class="article"> 
+		<div class="article-title">
+			<a href="#" class="hover-link"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+				Путін заявив, що Росія сильніша за будь-якого агресора</a>
 			</div>
+
+		</div>
+		<div class="article"> 
+			<div class="article-title">
+				<a href="#" class="hover-link red-text "><em>фото</em>ДЕПУТАТ У ДНІПРІ ПОПАВСЯ НА ХАБАРІ</a>
+			</div>
+
+		</div>
+	</div>
+	<!--advertising-->
+	<div class="col l4 s12 m6 center reklama">
+		<img src="<?php bloginfo('template_url'); ?>/img/logo/logo_kodeks.png" width="40%">
+	</div>
+</div>

@@ -1,0 +1,5 @@
+Chrome=2
+Firefox=1
+IE=1
+Opera=0
+Safari=2
